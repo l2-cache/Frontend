@@ -1,5 +1,4 @@
 import React from "react";
-import Chart from "./Chart";
 import NameBar from "./NameBar";
 import PriceBar from "./PriceBar";
 import ChartBox from "./ChartBox";
