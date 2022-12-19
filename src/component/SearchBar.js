@@ -1,4 +1,5 @@
 import React from "react";
+import SearchIcon from "@mui/icons-material/Search"
 
 function SearchBar() {
 
@@ -7,7 +8,7 @@ function SearchBar() {
             <form id="search-form" method="GET" action="/search" className="flex justify-between ">
                 <input type="text" placeholder="검색어를 입력해주세요" name="searchName" className="border-0 w-full" />
                 <button>
-                    <img src="img/search.svg" className="w-9 h-9 mr-2 p-1"/>
+                    <SearchIcon className="mx-2"></SearchIcon>
                 </button>
             </form>
         </div>

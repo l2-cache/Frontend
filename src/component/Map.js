@@ -1,6 +1,5 @@
 /* global naver */
 import React, {useEffect} from "react";
-
 const Map = () => {
     useEffect(() => {
 
@@ -65,7 +64,7 @@ const Map = () => {
                 icon: {
                     content: [
                         '<div>',
-                        '<div><Image src="img/house.png" style="width=35px; height: 35px;"/></div>',
+                        '<img src="https://user-images.githubusercontent.com/74089271/208345853-13a38514-ca10-407d-8297-9eba1e9d8021.png"style="width: 35px; height: 35px"/>',
                         '</div>'
                     ].join(''),
                     size: new naver.maps.Size(24, 37),
