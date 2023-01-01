@@ -11,7 +11,7 @@ const MapHeader = () => {
             <div>
             </div>
             <div className="flex flex-row items-center justify-end">
-                <button className="bg-gray-800 text-white px-2 py-2 rounded-lg mx-2">Who We Are?</button>
+                <button className="bg-gray-800 text-white px-2 py-1.5 rounded-lg mx-2">Who We Are?</button>
                 <Person fontSize={"large"} className="mr-4 text-gray-800"/>
             </div>
         </div>
