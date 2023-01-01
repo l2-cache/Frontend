@@ -26,7 +26,7 @@ const KakaoMap = () => {
     }
 
     return (
-        <Map className="h-screen w-screen relative"  center={{
+        <Map className="relative top-0" style={{height:"36rem", width:"60rem"}}  center={{
             lat: 37.619294,
             lng: 127.058345
         }}
