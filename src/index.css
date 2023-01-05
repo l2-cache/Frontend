@@ -24,3 +24,8 @@ code {
 input:focus {
   outline: none;
 }
+
+.slick-prev {
+  margin: 0px;
+  left: 100px
+}
