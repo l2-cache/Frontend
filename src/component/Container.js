@@ -9,9 +9,7 @@ const Container = () => {
             <MapHeader>
             </MapHeader>
             <div className="flex flex-row rounded-b-2xl justify-evenly">
-                <InformationBox>
-
-                </InformationBox>
+                <InformationBox/>
                 <KakaoMap/>
             </div>
         </div>

@@ -8,14 +8,9 @@ import Container from "./component/Container";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-        <div className="bg-gray-400 h-screen">
+        <div className="bg-gray-400 h-full flex flex-col">
             <div className="flex min-h-screen justify-center items-center">
-                <Container>
-                    {/*/!*<SearchBar/>*!/*/}
-                    {/*/!*<FloatBox>*!/*/}
-                    {/*/!*    <Chart className="absoulute"/>*!/*/}
-                    {/*/!*</FloatBox>*!/*/}
-                </Container>
+                <Container/>
             </div>
         </div>
 );

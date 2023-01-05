@@ -1,7 +1,6 @@
 import React from "react";
 import Carousel from 'react-material-ui-carousel'
 import ApartName from "./ApartName";
-import {Paper} from "@mui/material";
 import Chart from "./Chart";
 
 const Arrow = (props) => {
@@ -29,12 +28,7 @@ const ApartInfoBox = () => {
     return(
         <div className="bg-gray-100 rounded-2xl flex flex-col" style={{height:"38rem"}}>
             <ApartName/>
-            {/*<Slider {...settings}>*/}
-            {/*    <div className="bg-white mx-3 rounded-md" style={{width:"56px"}}>*/}
-            {/*        <span>머시기냐</span>*/}
-            {/*    </div>*/}
-            {/*</Slider>*/}
-            <Carousel className="mx-3 bg-white rounded-md border-gray-200 border items-center justify-center flex flex-col">
+            <Carousel animation="slide" className="mx-3 bg-white rounded-md border-gray-200 border items-center justify-center flex flex-col">
                 <div>
                     <Chart name={"매매"}/>
                 </div>
