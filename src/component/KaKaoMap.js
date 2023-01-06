@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {Map, MapMarker, MarkerClusterer, useMap} from "react-kakao-maps-sdk";
 import axios from "axios";
-const KakaoMap = () => {
+import {useSelector} from "react-redux";
+const KakaoMap = ({city}) => {
 
     const [apart, setApart] = useState([]);
+
+    const mapData = useSelector(store=>store.mapData);
 
     useEffect(() => {
         axios.get('http://localhost:8080/api/find-all')
@@ -26,11 +29,8 @@ const KakaoMap = () => {
     }
 
     return (
-        <Map className="relative top-0 m-2 rounded-2xl" style={{height:"44rem", width:"40rem"}}  center={{
-            lat: 37.551900750545876,
-            lng: 126.96608355213874
-        }}
-             level={9}
+        <Map className="relative top-0 m-2 rounded-2xl" style={{height:"44rem", width:"40rem"}}  center={mapData}
+             level={3}
         >
             <MarkerClusterer
                 averageCenter={true}
