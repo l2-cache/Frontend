@@ -2,18 +2,23 @@ import React, {useEffect, useState} from "react";
 import {Map, MapMarker, MarkerClusterer, useMap} from "react-kakao-maps-sdk";
 import axios from "axios";
 import {useSelector} from "react-redux";
-const KakaoMap = ({city}) => {
+const KakaoMap = () => {
 
     const [apart, setApart] = useState([]);
 
-    const mapData = useSelector(store=>store.mapData);
+    const city = useSelector(store=>store.cityData);
+    // const mapData = useSelector(store=>store.mapData);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/find-all')
-            .then((res)=>{
-                setApart(res.data.slice(1,2000));
-            })
-    },[]);
+        async function fetchApartData() {
+            await axios.get('http://localhost:8080/api/find-city?city='+ city.name)
+                .then((res) => {
+                    console.log(res.data);
+                    setApart(res.data);
+                })
+        }
+        fetchApartData();
+    },[city]);
 
     const EventMarkerContainer = (data) => {
         const map = useMap();
@@ -29,8 +34,8 @@ const KakaoMap = ({city}) => {
     }
 
     return (
-        <Map className="relative top-0 m-2 rounded-2xl" style={{height:"44rem", width:"40rem"}}  center={mapData}
-             level={3}
+        <Map className="relative top-0 m-2 rounded-2xl" style={{height:"44rem", width:"40rem"}}  center={{lat:city.x, lng:city.y}}
+             level={6}
         >
             <MarkerClusterer
                 averageCenter={true}

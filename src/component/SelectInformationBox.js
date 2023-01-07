@@ -9,7 +9,6 @@ const SelectInformationBox = () => {
 
     const handleChangeCity = (e) => {
         CityDataAction.modifyCityData(JSON.parse(e.target.value));
-        MapDataAction.modifyMapData({lat:JSON.parse(e.target.value).x, lng:JSON.parse(e.target.value).y});
     }
 
     useEffect(() => {
