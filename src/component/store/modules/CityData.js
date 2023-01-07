@@ -1,9 +1,11 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
     name: '노원구',
     x: 37.65438,
-    y: 127.056389
+    y: 127.056389,
+    apart: [],
 };
 
 export const citySlice = createSlice({
@@ -14,9 +16,10 @@ export const citySlice = createSlice({
     initialState,
     reducers: {
         changeValue: (state,action) => {
+
             return {...action.payload};
         }
-    }
+    },
 })
 
 export const {changeValue} = citySlice.actions;

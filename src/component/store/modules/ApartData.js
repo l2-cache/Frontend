@@ -1,20 +1,29 @@
-const MODIFY_APART_DATA = 'mapData/MODIFY_MAP_DATA';
-const INIT_APART_DATA = 'mapData/MODIFY_INIT_DATA';
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const modifyMapData = (data) => ({data:data, type:MODIFY_APART_DATA});
-export const initCityData = () => ({type:INIT_APART_DATA});
+const initialState = [];
 
-const initialState = {
-    lat:37.65438, lng:127.056389
-}
+export const getApart = createAsyncThunk("GET_APART", async (data) => {
+    const response = await axios.get('http://localhost:8080/api/find-city?city=' + data.name);
+    console.log(response.data);
+    return response.data;
+    // return {
+    //     name: data.name,
+    //     x: data.x,
+    //     y: data.y,
+    //     apart: response.data
+    // };
+});
 
-export default function mapData(state = initialState, action) {
-    switch (action.type) {
-        case MODIFY_APART_DATA:
-            return {...action.data};
-        case INIT_APART_DATA:
-            return initialState;
-        default:
-            return state;
-    }
-}
+export const apartSlice = createSlice({
+    name: "apart",
+
+    initialState,
+    reducers: {
+    },
+    extraReducers: {
+        [getApart.fulfilled]: (state, {payload}) => [...payload],
+    },
+})
+
+export default apartSlice.reducer;

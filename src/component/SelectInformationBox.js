@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {cityDatas, hashCityData} from "./store/modules/CityDatas";
 import {useDispatch, useSelector} from "react-redux";
 import {changeValue} from "./store/modules/CityData";
+import {getApart} from "./store/modules/ApartData";
 
 const SelectInformationBox = () => {
 
@@ -9,12 +10,14 @@ const SelectInformationBox = () => {
     const city = useSelector(state => state.city);
 
     const handleChangeCity = (e) => {
+        // async function fetchApartData() {
+        //     let res = await axios.get('http://localhost:8080/api/find-city?city='+ JSON.parse(e.target.value).name);
+        //     console.log(res.data);
+        // }
+        // fetchApartData();
         dispatch(changeValue(JSON.parse(e.target.value)));
+        dispatch(getApart(JSON.parse(e.target.value)));
     }
-
-    useEffect(() => {
-
-    },[city])
 
     return(
         <div className="flex flex-row items-center justify-start m-2">

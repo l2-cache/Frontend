@@ -1,23 +1,24 @@
 import React, {useEffect, useState} from "react";
 import {Map, MapMarker, MarkerClusterer, useMap} from "react-kakao-maps-sdk";
 import axios from "axios";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {changeValue} from "./store/modules/CityData";
+import {getApart} from "./store/modules/ApartData";
 const KakaoMap = () => {
 
-    const [apart, setApart] = useState([]);
-
     const city = useSelector(state=>state.city);
+    const apart = useSelector(state=>state.apart);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        async function fetchApartData() {
-            await axios.get('http://localhost:8080/api/find-city?city='+ city.name)
-                .then((res) => {
-                    console.log(res.data);
-                    setApart(res.data);
-                })
-        }
-        fetchApartData();
-    },[city]);
+        // const response = axios.get('http://localhost:8080/api/find-city?city=노원구')
+        //     .then(res => {
+        //         console.log(res.data);
+        //         setApart(res.data);
+        //     })
+        dispatch(getApart({name:'노원구',x:37.65438,y:127.056389, apart:[]}));
+        console.log(apart);
+    },[]);
 
     const EventMarkerContainer = (data) => {
         const map = useMap();
@@ -42,7 +43,7 @@ const KakaoMap = () => {
             >
                 {
                     Array.isArray(apart) && apart.length === 0 ? <></> : apart.map((data) => {
-                        return(<MapMarker key={data.id} position={{lat:data.latitude, lng: data.longitude}}/>)
+                        return(<MapMarker key={data.id} position={{lat:data.longitude, lng: data.latitude}}/>)
                     })
                 }
             </MarkerClusterer>
