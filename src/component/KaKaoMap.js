@@ -6,8 +6,7 @@ const KakaoMap = () => {
 
     const [apart, setApart] = useState([]);
 
-    const city = useSelector(store=>store.cityData);
-    // const mapData = useSelector(store=>store.mapData);
+    const city = useSelector(state=>state.city);
 
     useEffect(() => {
         async function fetchApartData() {

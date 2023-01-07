@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from "react";
 import {cityDatas, hashCityData} from "./store/modules/CityDatas";
-import {useSelector} from "react-redux";
-import {CityDataAction, MapDataAction} from "./store/actionCreators";
+import {useDispatch, useSelector} from "react-redux";
+import {changeValue} from "./store/modules/CityData";
 
 const SelectInformationBox = () => {
 
-    const city = useSelector(store=>store.cityData);
+    const dispatch = useDispatch();
+    const city = useSelector(state => state.city);
 
     const handleChangeCity = (e) => {
-        CityDataAction.modifyCityData(JSON.parse(e.target.value));
+        dispatch(changeValue(JSON.parse(e.target.value)));
     }
 
     useEffect(() => {
