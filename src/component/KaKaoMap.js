@@ -14,6 +14,10 @@ const KakaoMap = () => {
         dispatch(getApart({name:'노원구',x:37.65438,y:127.056389, apart:[]}));
     },[]);
 
+    // const handlerMapInfo = async (data) => {
+    //     await axios.get(process.env.REACT_APP_BACKEND)
+    // }
+
     const ContentBox = ({data}) => {
         return(
             <div className="bg-white p-1 border-gray-500 rounded-md">
@@ -28,7 +32,7 @@ const KakaoMap = () => {
         const [isVisible, setIsVisible] = useState(false);
 
         return (
-            <MapMarker position={{lat:data.longitude, lng: data.latitude}}
+            <MapMarker position={{lat:data.latitude, lng: data.longitude}}
                        onMouseOver={() => setIsVisible(true)}
                        onMouseOut={() => setIsVisible(false)}
             >
