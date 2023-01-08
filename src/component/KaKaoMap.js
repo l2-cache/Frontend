@@ -11,27 +11,33 @@ const KakaoMap = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // const response = axios.get('http://localhost:8080/api/find-city?city=노원구')
-        //     .then(res => {
-        //         console.log(res.data);
-        //         setApart(res.data);
-        //     })
         dispatch(getApart({name:'노원구',x:37.65438,y:127.056389, apart:[]}));
-        console.log(apart);
     },[]);
 
-    const EventMarkerContainer = (data) => {
+    const ContentBox = ({data}) => {
+        return(
+            <div className="bg-white p-1 border-gray-500 rounded-md">
+                <p>{data.apartName}</p>
+                <p className="text-sm">서울특별시 {data.city} {data.dong} {data.streetAddress}</p>
+            </div>
+        )
+    }
+
+    const EventMarkerContainer = ({data}) => {
         const map = useMap();
         const [isVisible, setIsVisible] = useState(false);
 
         return (
-            <MapMarker position={{lat:data.latitude, lng: data.longitude}}
+            <MapMarker position={{lat:data.longitude, lng: data.latitude}}
+                       onMouseOver={() => setIsVisible(true)}
+                       onMouseOut={() => setIsVisible(false)}
             >
-
+                {isVisible && <ContentBox data={data}/>}
             </MapMarker>
         )
 
     }
+
 
     return (
         <Map className="relative top-0 m-2 rounded-2xl" style={{height:"44rem", width:"40rem"}}  center={{lat:city.x, lng:city.y}}
@@ -43,7 +49,7 @@ const KakaoMap = () => {
             >
                 {
                     Array.isArray(apart) && apart.length === 0 ? <></> : apart.map((data) => {
-                        return(<MapMarker key={data.id} position={{lat:data.longitude, lng: data.latitude}}/>)
+                        return(<EventMarkerContainer data={data} key={data.id}/>)
                     })
                 }
             </MarkerClusterer>

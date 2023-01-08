@@ -21,7 +21,7 @@ const SelectInformationBox = () => {
 
     return(
         <div className="flex flex-row items-center justify-start m-2">
-            <select value={JSON.stringify(city)} defaultValue={JSON.stringify(city)} onChange={handleChangeCity} name="position" className="pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">
+            <select value={JSON.stringify(city)} onChange={handleChangeCity} name="position" className="pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">
                 {
                     cityDatas.map((data,index) => {
                         if (data.name === '노원구') {
