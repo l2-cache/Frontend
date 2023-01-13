@@ -5,7 +5,6 @@ const initialState = [];
 
 export const getApart = createAsyncThunk("GET_APART", async (data) => {
     const response = await axios.get(process.env.REACT_APP_BACKEND +'/find-city?city=' + data.name);
-    console.log(response.data);
     return response.data;
     // return {
     //     name: data.name,

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import ReactApexChart from "react-apexcharts";
+import {useSelector} from "react-redux";
 const data = [
     {
         "name": "01-01",
@@ -89,7 +90,7 @@ const series = [{
 }]
 
 
-const Chart = ({name}) => {
+const Chart = (props) => {
     const options = {
         chart: {
             type: 'line',
@@ -99,7 +100,7 @@ const Chart = ({name}) => {
             curve: 'stepline',
         },
         title: {
-            text: '아파트 '+ name +' 시세',
+            text: '아파트 '+ props.data.area +'㎡ 시세',
             align: 'center',
             style: {
                 fontSize: '20px',
@@ -130,21 +131,9 @@ const Chart = ({name}) => {
 
     return (
         <div className="mx-2" style={{height:"29rem"}}>
-            {/*<h3 className="text-xl text-center">*/}
-            {/*    아파트 시세*/}
-            {/*</h3>*/}
-            <ReactApexChart type="line" options={options} series={series} style={{marginTop:"10px"}}>
+            <ReactApexChart type="line" options={options} series={[props.data]} style={{marginTop:"10px"}}>
 
             </ReactApexChart>
-            {/*<LineChart width={560} height={320} data={data} >*/}
-            {/*    <CartesianGrid strokeDasharray="3 3"/>*/}
-            {/*    <XAxis dataKey="name"/>*/}
-            {/*    /!* <YAxis/> *!/*/}
-            {/*    <Tooltip/>*/}
-            {/*    <Legend/>*/}
-            {/*    <Line dataKey="대동아파트" fill="#10b981" style={{fontSize: '1rem'}} />*/}
-            {/*    /!*<Bar dataKey="청마루" fill="#0c4a6e" style={{fontSize: '1rem'}} />*!/*/}
-            {/*</LineChart>*/}
         </div>
     )
 }

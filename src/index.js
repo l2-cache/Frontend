@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Container from "./component/Container";
 import {Provider} from "react-redux";
 import {store} from "./component/store/store";
+import {ChakraProvider} from "@chakra-ui/react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

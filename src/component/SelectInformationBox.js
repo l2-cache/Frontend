@@ -8,6 +8,7 @@ const SelectInformationBox = () => {
 
     const dispatch = useDispatch();
     const city = useSelector(state => state.city);
+    const chartInfo = useSelector(state=>state.chartInfo);
 
     const handleChangeCity = (e) => {
         // async function fetchApartData() {
@@ -38,9 +39,13 @@ const SelectInformationBox = () => {
                 <option>매매</option>
                 <option>전월세</option>
             </select>
-            <select name="position" className="ml-4 pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">
-                <option>77.75㎡</option>
-            </select>
+            {Array.isArray(chartInfo.netLeasableAreas) && chartInfo.netLeasableAreas.length === 0 ? <></> :<select name="position" className="ml-4 pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">
+                {
+                    chartInfo.netLeasableAreas.map((data, index) => {
+                        return(<option key={index} value={data}>{data}㎡</option>)
+                })
+                }
+            </select> }
         </div>
     )
 }
