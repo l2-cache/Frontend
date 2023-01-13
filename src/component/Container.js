@@ -2,8 +2,9 @@ import React, {useState} from "react";
 import KakaoMap from "./KaKaoMap";
 import MapHeader from "./MapHeader";
 import InformationBox from "./InformationBox";
+import {toast, ToastContainer} from "react-toastify";
 
-const Container = () => {
+const Container = (props) => {
     return(
         <div className="bg-white flex flex-col rounded-2xl drop-shadow-2xl shadow-2xl" style={{height:"48rem", width:"80rem"}}>
             <MapHeader>

@@ -5,13 +5,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeValue} from "./store/modules/CityData";
 import {getApart} from "./store/modules/ApartData";
 import {getChartInfo} from "./store/modules/ChartInfo";
-import {useToast} from "@chakra-ui/react";
+import {toast} from "react-toastify";
 const KakaoMap = () => {
 
     const city = useSelector(state=>state.city);
     const apart = useSelector(state=>state.apart);
     const dispatch = useDispatch();
-    const toast = useToast();
 
     useEffect(() => {
         dispatch(getApart({name:'노원구',x:37.65438,y:127.056389, apart:[]}));
@@ -21,16 +20,12 @@ const KakaoMap = () => {
         await axios.get(process.env.REACT_APP_BACKEND + "/apart-info?apartName=" + data.apartName + '&streetAddress=?')
             .then((response) => {
                 if (response.data !== null) {
-                    // toast({
-                    //     title: "성공적으로 선택하신 아파트의 정보를 불러왔습니다",
-                    //     status: "success",
-                    //     isClosable: true,
-                    //     duration: 3000,
-                    // })
+                    toast.success('성공적으로 데이터를 불러왔습니다 👍');
+                } else {
+                    toast.error('데이터가 존재하지 않습니다 😥');
                 }
                 dispatch(getChartInfo(response.data));
             })
-
     }
     const ContentBox = ({data}) => {
         return(
