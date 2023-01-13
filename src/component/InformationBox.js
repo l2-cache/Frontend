@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import SelectInformationBox from "./SelectInformationBox";
-import ApartInfoBox from "./ApartInfoBox";
+import ApartInfoBox from "./apart/ApartInfoBox";
 
 const InformationBox = (props) => {
     return (

@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import {Map, MapMarker, MarkerClusterer, useMap} from "react-kakao-maps-sdk";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
-import {changeValue} from "./store/modules/CityData";
-import {getApart} from "./store/modules/ApartData";
-import {getChartInfo} from "./store/modules/ChartInfo";
+import {changeValue} from "../store/modules/CityData";
+import {getApart} from "../store/modules/ApartData";
+import {getChartInfo} from "../store/modules/ChartInfo";
 import {toast} from "react-toastify";
 const KakaoMap = () => {
 

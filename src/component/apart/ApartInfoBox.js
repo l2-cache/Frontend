@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from 'react-material-ui-carousel'
 import ApartName from "./ApartName";
-import Chart from "./Chart";
+import Chart from "../chart/Chart";
 import {useSelector} from "react-redux";
 
 const ApartInfoBox = () => {
