@@ -17,9 +17,10 @@ const KakaoMap = () => {
     },[]);
 
     const handlerMapInfo = async (data) => {
-        await axios.get(process.env.REACT_APP_BACKEND + "/apart-info?apartName=" + data.apartName + '&streetAddress=?')
+        await axios.get(process.env.REACT_APP_BACKEND + "/apart-info?apartName=" + data.apartName + '&streetAddress=' + data.streetAddress)
             .then((response) => {
                 if (response.data !== null) {
+                    console.log(response.data);
                     toast.success('성공적으로 데이터를 불러왔습니다 👍');
                 } else {
                     toast.error('데이터가 존재하지 않습니다 😥');

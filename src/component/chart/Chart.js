@@ -4,11 +4,8 @@ import ReactApexChart from "react-apexcharts";
 const Chart = (props) => {
     const options = {
         chart: {
-            type: 'line',
+            type: 'area',
             height: 350
-        },
-        stroke: {
-            curve: 'stepline',
         },
         title: {
             text: '아파트 '+ props.data.area +'㎡ 시세',
@@ -23,7 +20,7 @@ const Chart = (props) => {
                 sizeOffset: 4
             }
         },
-        colors: ['#82CD47'],
+        colors: ['#FF2D45'],
         tooltip: {
             y: {
                 formatter: function(value, { series, seriesIndex, dataPointIndex, w }) {
@@ -42,7 +39,7 @@ const Chart = (props) => {
 
     return (
         <div className="mx-2" style={{height:"29rem"}}>
-            <ReactApexChart type="line" options={options} series={[props.data]} style={{marginTop:"10px"}}>
+            <ReactApexChart type="area" options={options} series={[props.data]} style={{marginTop:"10px"}}>
 
             </ReactApexChart>
         </div>
