@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import ReactApexChart from "react-apexcharts";
+import ApartOtherInfo from "../apart/ApartOtherInfo";
 
 const Chart = (props) => {
     const options = {
@@ -38,7 +39,8 @@ const Chart = (props) => {
     }
 
     return (
-        <div className="mx-2" style={{height:"29rem"}}>
+        <div className="mx-2 flex flex-col" style={{height:"29rem"}}>
+            <ApartOtherInfo/>
             <ReactApexChart type="area" options={options} series={[props.data]} style={{marginTop:"10px"}}>
 
             </ReactApexChart>

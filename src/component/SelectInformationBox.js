@@ -12,17 +12,11 @@ const SelectInformationBox = () => {
     const chartInfo = useSelector(state=>state.chartInfo);
 
     const handleChangeCity = (e) => {
-        // async function fetchApartData() {
-        //     let res = await axios.get('http://localhost:8080/api/find-city?city='+ JSON.parse(e.target.value).name);
-        //     console.log(res.data);
-        // }
-        // fetchApartData();
         dispatch(changeValue(JSON.parse(e.target.value)));
         dispatch(getApart(JSON.parse(e.target.value)));
     }
 
     const handleChangeLeasable = (e) => {
-        console.log("아니 이게 맞음?? ", e.target.value);
         dispatch(changeLeasable(parseFloat(e.target.value)));
     }
 
@@ -41,10 +35,10 @@ const SelectInformationBox = () => {
                     })
                 }
             </select>
-            <select name="position" className="ml-4 pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">
-                <option>매매</option>
-                <option>전월세</option>
-            </select>
+            {/*<select name="position" className="ml-4 pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">*/}
+            {/*    <option>매매</option>*/}
+            {/*    <option>전월세</option>*/}
+            {/*</select>*/}
             {Array.isArray(chartInfo.netLeasableAreas) && chartInfo.netLeasableAreas.length === 0 ? <></>
                 :<select name="leasable" onChange={handleChangeLeasable} className="ml-4 pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">
                 {
