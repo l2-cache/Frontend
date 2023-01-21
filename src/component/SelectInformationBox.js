@@ -3,6 +3,7 @@ import {cityDatas, hashCityData} from "./store/modules/CityDatas";
 import {useDispatch, useSelector} from "react-redux";
 import {changeValue} from "./store/modules/CityData";
 import {getApart} from "./store/modules/ApartData";
+import {changeLeasable} from "./store/modules/LeasableData";
 
 const SelectInformationBox = () => {
 
@@ -18,6 +19,11 @@ const SelectInformationBox = () => {
         // fetchApartData();
         dispatch(changeValue(JSON.parse(e.target.value)));
         dispatch(getApart(JSON.parse(e.target.value)));
+    }
+
+    const handleChangeLeasable = (e) => {
+        console.log("아니 이게 맞음?? ", e.target.value);
+        dispatch(changeLeasable(parseFloat(e.target.value)));
     }
 
     return(
@@ -39,7 +45,8 @@ const SelectInformationBox = () => {
                 <option>매매</option>
                 <option>전월세</option>
             </select>
-            {Array.isArray(chartInfo.netLeasableAreas) && chartInfo.netLeasableAreas.length === 0 ? <></> :<select name="position" className="ml-4 pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">
+            {Array.isArray(chartInfo.netLeasableAreas) && chartInfo.netLeasableAreas.length === 0 ? <></>
+                :<select name="leasable" onChange={handleChangeLeasable} className="ml-4 pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">
                 {
                     chartInfo.netLeasableAreas.map((data, index) => {
                         return(<option key={index} value={data}>{data}㎡</option>)

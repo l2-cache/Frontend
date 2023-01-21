@@ -1,14 +1,14 @@
-import React, { PureComponent } from 'react';
+import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-const Chart = (props) => {
+const PredictChart = (props) => {
     const options = {
         chart: {
             type: 'area',
             height: 350
         },
         title: {
-            text: '아파트 '+ props.data.area +'㎡ 시세',
+            text: '아파트 '+ props.data.area +' 시세',
             align: 'center',
             style: {
                 fontSize: '20px',
@@ -20,7 +20,7 @@ const Chart = (props) => {
                 sizeOffset: 4
             }
         },
-        colors: ['#FF2D45'],
+        colors: ['#301E67'],
         tooltip: {
             y: {
                 formatter: function(value, { series, seriesIndex, dataPointIndex, w }) {
@@ -46,4 +46,4 @@ const Chart = (props) => {
     )
 }
 
-export default Chart;
+export default PredictChart

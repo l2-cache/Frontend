@@ -6,6 +6,7 @@ import {changeValue} from "../store/modules/CityData";
 import {getApart} from "../store/modules/ApartData";
 import {getChartInfo} from "../store/modules/ChartInfo";
 import {toast} from "react-toastify";
+import {changeLeasable} from "../store/modules/LeasableData";
 const KakaoMap = () => {
 
     const city = useSelector(state=>state.city);
@@ -26,6 +27,11 @@ const KakaoMap = () => {
                     toast.error('데이터가 존재하지 않습니다 😥');
                 }
                 dispatch(getChartInfo(response.data));
+                if(Array.isArray(response.data.netLeasableAreas) && response.data.netLeasableAreas.length !== 0) {
+                    dispatch(changeLeasable(response.data.netLeasableAreas[0]));
+                } else {
+                    dispatch(changeLeasable("없습니다"));
+                }
             })
     }
     const ContentBox = ({data}) => {

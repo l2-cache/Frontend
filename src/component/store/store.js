@@ -3,12 +3,14 @@ import {configureStore} from "@reduxjs/toolkit";
 import cityReducer from "./modules/CityData";
 import apartReducer from "./modules/ApartData";
 import chartReducer from "./modules/ChartInfo"
+import leasableReducer from "./modules/LeasableData"
 import thunk from "redux-thunk";
 export const store = configureStore({
     reducer: {
         city: cityReducer,
         apart: apartReducer,
-        chartInfo: chartReducer
+        chartInfo: chartReducer,
+        leasable: leasableReducer
     },
     middleware: [logger, thunk]
 });
