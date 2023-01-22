@@ -61,7 +61,7 @@ const KakaoMap = () => {
 
 
     return (
-        <Map className="relative top-0 m-2 rounded-2xl" style={{height:"44rem", width:"40rem"}}  center={{lat:city.x, lng:city.y}}
+        <Map className="relative mr-4 ml-2 my-12 rounded-2xl" style={{height:"40rem", width:"40rem"}}  center={{lat:city.x, lng:city.y}}
              level={6}
         >
             <MarkerClusterer

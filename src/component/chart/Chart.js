@@ -9,7 +9,7 @@ const Chart = (props) => {
             height: 350
         },
         title: {
-            text: '아파트 '+ props.data.area +'㎡ 시세',
+            text: '아파트 매매 시세',
             align: 'center',
             style: {
                 fontSize: '20px',
@@ -40,7 +40,7 @@ const Chart = (props) => {
 
     return (
         <div className="mx-2 flex flex-col" style={{height:"29rem"}}>
-            <ApartOtherInfo/>
+            <ApartOtherInfo deposit={props.data.monthlyDeposit} price={props.data.monthlyPrice}/>
             <ReactApexChart type="area" options={options} series={[props.data]} style={{marginTop:"10px"}}>
 
             </ReactApexChart>

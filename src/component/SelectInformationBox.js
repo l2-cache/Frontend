@@ -35,10 +35,6 @@ const SelectInformationBox = () => {
                     })
                 }
             </select>
-            {/*<select name="position" className="ml-4 pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">*/}
-            {/*    <option>매매</option>*/}
-            {/*    <option>전월세</option>*/}
-            {/*</select>*/}
             {Array.isArray(chartInfo.netLeasableAreas) && chartInfo.netLeasableAreas.length === 0 ? <></>
                 :<select name="leasable" onChange={handleChangeLeasable} className="ml-4 pl-3 pr-8 py-1 rounded-md w-auto text-gray-700 border-gray-400">
                 {
