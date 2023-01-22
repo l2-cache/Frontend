@@ -29,7 +29,8 @@ const ApartInfoBox = () => {
                             chartInfo.tradingHistories[0].priceHalfYear !== null ? chartInfo.tradingHistories.map((data, index) => {
                                if (data.priceHalfYear !== null && data.area === leasableValue) {
                                    return(
-                                           <PredictChart key={index} data={{data:[{x:"6개월후",y:data.priceHalfYear.toFixed([2])},{x:"1년 후",y:data.priceOneYear.toFixed([2])},{x:"2년 후",y:data.priceTwoYear.toFixed([2])}],area:"예측가격",name:"예측가격"}} />
+                                           <PredictChart key={index} predictMonthlyDeposit={data.predictMonthlyDeposit} predictMonthlyPrice={data.predictMonthlyPrice}
+                                                         data={{data:[{x:"6개월후",y:data.priceHalfYear.toFixed([2])},{x:"1년 후",y:data.priceOneYear.toFixed([2])},{x:"2년 후",y:data.priceTwoYear.toFixed([2])}],area:"예측가격",name:"예측가격"}} />
                                    )
                                }
                             }) : <div style={{height:"29rem"}} className="text-center flex justify-center items-center text-xl">예측 데이터가 없습니다 😭</div>

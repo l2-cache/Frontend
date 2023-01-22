@@ -1,5 +1,6 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import ApartOtherInfo from "../apart/ApartOtherInfo";
 
 const PredictChart = (props) => {
     const options = {
@@ -39,6 +40,7 @@ const PredictChart = (props) => {
 
     return (
         <div className="mx-2" style={{height:"29rem"}}>
+            <ApartOtherInfo deposit={props.predictMonthlyDeposit} price={props.predictMonthlyPrice} name="예측 월세"/>
             <ReactApexChart type="area" options={options} series={[props.data]} style={{marginTop:"10px"}}>
 
             </ReactApexChart>

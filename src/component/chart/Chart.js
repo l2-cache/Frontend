@@ -40,7 +40,7 @@ const Chart = (props) => {
 
     return (
         <div className="mx-2 flex flex-col" style={{height:"29rem"}}>
-            <ApartOtherInfo deposit={props.data.monthlyDeposit} price={props.data.monthlyPrice}/>
+            <ApartOtherInfo deposit={props.data.monthlyDeposit} price={props.data.monthlyPrice} name="월세"/>
             <ReactApexChart type="area" options={options} series={[props.data]} style={{marginTop:"10px"}}>
 
             </ReactApexChart>

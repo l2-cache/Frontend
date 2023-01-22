@@ -16,8 +16,10 @@ export const citySlice = createSlice({
     initialState,
     reducers: {
         changeValue: (state,action) => {
-
             return {...action.payload};
+        },
+        changeMapCenter: (state, action) => {
+            return {...action.payload}
         }
     },
 })
