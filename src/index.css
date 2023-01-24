@@ -21,7 +21,8 @@ code {
   color: #71717A;
 }
 
-input:focus {
+.search-data input:focus {
+  border-color:#000000;
   outline: none;
 }
 
