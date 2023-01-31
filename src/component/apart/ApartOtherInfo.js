@@ -30,11 +30,11 @@ const ApartOtherInfo = (props) => {
         <div className="grid grid-cols-2 gap-2 items-center my-2">
             <div className="border rounded-md h-20 p-2">
                 <p className="text-xl font-bold text-gray-900">평균 {props.name} 보증금</p>
-                <p className="text-gray-800"><span className="text-gray-500">매물 평균가</span> {numberToKorean(props.deposit)}만원</p>
+                <p className="text-gray-800"><span className="text-gray-500">매물 평균가</span> {props.deposit === null ? '데이터가 없습니다' : `${props.deposit}만원`}</p>
             </div>
             <div className="border rounded-md h-20 p-2">
                 <p className="text-xl font-bold text-gray-900">평균 {props.name} 가격</p>
-                <p className="text-gray-800"><span className="text-gray-500">매물 평균가</span> {numberToKorean(props.price)}만원</p>
+                <p className="text-gray-800"><span className="text-gray-500">매물 평균가</span> {props.price === null ? '데이터가 없습니다' : `${props.price}만원`}</p>
             </div>
         </div>
     )
