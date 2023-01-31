@@ -3,7 +3,7 @@ import KakaoMap from "./map/KaKaoMap";
 import MapHeader from "./MapHeader";
 import InformationBox from "./InformationBox";
 import {Box, Modal} from "@mui/material";
-import SearchInfo from "./search-list/SearchInfo";
+import ProfitDataBox from "./profit-list/ProfitDataBox";
 
 const Container = () => {
     const [isSearchVisible, setSearchVisible] = useState(false);
@@ -22,7 +22,7 @@ const Container = () => {
                 }
                 <KakaoMap/>
             </div>
-            {open ? <SearchInfo open={open} setOpen={setOpen} handleOpen={handleOpen} handleClose={handleClose}/> : <></>}
+            {open ? <ProfitDataBox open={open} setOpen={setOpen} handleOpen={handleOpen} handleClose={handleClose}/> : <></>}
         </div>
     )
 }
