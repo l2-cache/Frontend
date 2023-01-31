@@ -17,6 +17,7 @@ const ProfitDataBox = (props) => {
                                 <th className="px-6 py-3">순위</th>
                                 <th className="px-6 py-3">주소</th>
                                 <th className="px-6 py-3">거래 금액</th>
+                                <th className="px-6 py-3">전용면적(㎡)</th>
                                 <th className="px-6 py-3">수익 률</th>
                             </tr>
                         </thead>
