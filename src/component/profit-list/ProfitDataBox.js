@@ -1,8 +1,12 @@
 import React from "react";
 import {Modal} from "@mui/material";
 import ProfitData from "./ProfitData";
+import {useSelector} from "react-redux";
 
 const ProfitDataBox = (props) => {
+
+    const ranking = useSelector(state => state.ranking);
+
     return (
         <Modal open={props.open} onClose={props.handleClose} aria-labelledby="modal-modal-title"
                aria-describedby="modal-modal-description">
@@ -22,7 +26,9 @@ const ProfitDataBox = (props) => {
                             </tr>
                         </thead>
                         <tbody>
-                           <ProfitData/>
+                            {ranking.length === 0 ? <></> : ranking.map((data, index) => {
+                                return(<ProfitData ranking={data} key={index} index={index}/>);
+                            })}
                         </tbody>
                     </table>
                 </div>
