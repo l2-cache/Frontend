@@ -12,7 +12,7 @@ const ProfitDataBox = (props) => {
                aria-describedby="modal-modal-description">
             <div className="bg-white absolute top-1/2 left-1/2 rounded-lg drop-shadow-md"
                  style={{transform: 'translate(-50%, -50%)', scrollbarWidth: 'none', width: "800px", height: "600px"}}>
-                <h1 className="text-center p-2 font-bold text-2xl">수익률 순위</h1>
+                <h1 className="text-center p-2 font-bold text-2xl">예측 수익률 순위</h1>
                 <div className="relative overflow-x-auto overflow-y-auto h-full">
                     <table
                         className="w-full border-collapse text-sm table-auto text-left text-gray-600">

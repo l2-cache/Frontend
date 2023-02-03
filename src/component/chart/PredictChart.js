@@ -9,7 +9,7 @@ const PredictChart = (props) => {
             height: 350
         },
         title: {
-            text: '아파트 '+ props.data.area +' 시세',
+            text: '아파트 매매 예측',
             align: 'center',
             style: {
                 fontSize: '20px',
